@@ -308,6 +308,43 @@ button:hover {
   margin-bottom: 0.55rem;
 }
 
+.visual-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.visual-card {
+  border-radius: 24px;
+  padding: 1.8rem;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgba(41, 37, 36, 0.05);
+  border: 1px solid rgba(41, 37, 36, 0.08);
+}
+
+.visual-card span {
+  display: inline-flex;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: rgba(41, 37, 36, 0.08);
+  color: #292524;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.alt-card {
+  background: linear-gradient(180deg, rgba(37,40,45,0.07), rgba(255,255,255,0.9));
+}
+
+.new-card {
+  background: linear-gradient(180deg, rgba(104, 86, 69, 0.1), rgba(255,255,255,0.95));
+}
+
 .details-grid,
 .contact-grid {
   display: grid;

@@ -1,7 +1,7 @@
 const summaryData = {
   title: 'Bau-XaaS Umbau & Machbarkeitsstudie',
   subtitle: 'Einfach verständlich, klar strukturiert und bereit für Entscheidungen.',
-  location: 'EFH Feldstrasse 49, 4600 Olten • Seilergasse 2d, 4800 Zofingen',
+  location: 'Objektdaten aus der Machbarkeitsstudie',
   keyFacts: [
     'Grundstück: 430 m²',
     'Zone: W2 / Ausnützungsziffer 0.6',
@@ -12,12 +12,10 @@ const summaryData = {
   ],
   variants: [
     'Variante A: Totalsanierung mit modernem Ausbau',
-    'Variante B: Erweiterung und Dachgeschoss-Ausbau'
+    'Variante B: Wird aktuell nicht geprüft'
   ],
   contact: [
     'Bau-XaaS',
-    'Seilergasse 2d',
-    '4800 Zofingen',
     'info@bauxaas.ch',
     '+41 79 888 78 88'
   ]
