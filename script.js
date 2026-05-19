@@ -83,75 +83,63 @@ const progressObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.4 });
 document.querySelectorAll('.progress-track').forEach(el => progressObserver.observe(el));
 
-/* ===== BEFORE / AFTER SLIDER ===== */
-const baWrapper = document.getElementById('baWrapper');
-const baBefore  = document.getElementById('baBefore');
-const baHandle  = document.getElementById('baHandle');
+/* ===== BEFORE / AFTER SLIDERS ===== */
+let activeSlider = null;
 
-if (baWrapper && baBefore && baHandle) {
-  let dragging = false;
+function initSlider(wrapper) {
+  const before = wrapper.querySelector('.ba-before');
+  const handle = wrapper.querySelector('.ba-handle');
+  if (!before || !handle) return;
+
   let pct = 50;
+  handle.style.left = '50%';
 
-  function setSlider(x) {
-    const rect = baWrapper.getBoundingClientRect();
+  function update(x) {
+    const rect = wrapper.getBoundingClientRect();
     pct = Math.max(2, Math.min(98, ((x - rect.left) / rect.width) * 100));
-    baBefore.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
-    baHandle.style.left = pct + '%';
+    before.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+    handle.style.left = pct + '%';
   }
 
-  // Initialise at 50%
-  baHandle.style.left = '50%';
-
-  baWrapper.addEventListener('mousedown', (e) => {
-    dragging = true;
-    setSlider(e.clientX);
+  wrapper.addEventListener('mousedown', (e) => {
+    activeSlider = { update };
+    update(e.clientX);
     e.preventDefault();
   });
-  window.addEventListener('mousemove', (e) => { if (dragging) setSlider(e.clientX); });
-  window.addEventListener('mouseup',   () => { dragging = false; });
-
-  baWrapper.addEventListener('touchstart', (e) => {
-    dragging = true;
-    setSlider(e.touches[0].clientX);
+  wrapper.addEventListener('touchstart', (e) => {
+    activeSlider = { update };
+    update(e.touches[0].clientX);
   }, { passive: true });
-  window.addEventListener('touchmove', (e) => {
-    if (dragging) setSlider(e.touches[0].clientX);
-  }, { passive: true });
-  window.addEventListener('touchend', () => { dragging = false; });
 
-  // Hint: auto-animate once on load to show interaction
   let hintDone = false;
   const hintObserver = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting && !hintDone) {
       hintDone = true;
-      setTimeout(() => autoHint(), 600);
+      setTimeout(() => {
+        const dur = 1200, start = performance.now();
+        const step = (now) => {
+          const t = Math.min((now - start) / dur, 1);
+          const ease = t < .5 ? 2*t*t : 1 - Math.pow(-2*t+2, 2)/2;
+          const cur = t < .5 ? 50 + (30-50)*ease : 30 + (50-30)*((ease-.5)*2);
+          pct = cur;
+          before.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+          handle.style.left = pct + '%';
+          if (t < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      }, 600);
       hintObserver.disconnect();
     }
   }, { threshold: 0.5 });
-  hintObserver.observe(baWrapper);
-
-  function autoHint() {
-    const duration = 1200;
-    const start = performance.now();
-    const fromPct = 50;
-    const toPct   = 30;
-    const back    = 50;
-    const step = (now) => {
-      const t = Math.min((now - start) / duration, 1);
-      const ease = t < .5
-        ? 2 * t * t
-        : 1 - Math.pow(-2 * t + 2, 2) / 2;
-      const cur = t < .5
-        ? fromPct + (toPct - fromPct) * (ease)
-        : toPct   + (back   - toPct)  * ((ease - .5) * 2);
-      pct = cur;
-      baBefore.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
-      baHandle.style.left = pct + '%';
-      if (t < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  }
+  hintObserver.observe(wrapper);
 }
+
+document.querySelectorAll('.ba-wrapper').forEach(initSlider);
+
+window.addEventListener('mousemove', (e) => { if (activeSlider) activeSlider.update(e.clientX); });
+window.addEventListener('mouseup',   () => { activeSlider = null; });
+window.addEventListener('touchmove', (e) => { if (activeSlider) activeSlider.update(e.touches[0].clientX); }, { passive: true });
+window.addEventListener('touchend',  () => { activeSlider = null; });
 
 /* ===== FLOOR PLAN TABS ===== */
 document.querySelectorAll('.tab').forEach(tab => {
