@@ -969,34 +969,93 @@ dd { font-size: .9rem; font-weight: 600; color: var(--text); text-align: right; 
 
 /* ===== FOOTER ===== */
 .footer {
-  background: var(--text);
-  padding: 2.5rem 0;
+  background: var(--bg-dark);
+  padding: 4rem 0 0;
 }
-.footer-inner {
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 1.5rem; flex-wrap: wrap;
+.footer-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,255,255,.1);
 }
-.footer-brand {
-  display: flex; align-items: center; gap: .85rem;
-}
+.footer-brand-col { display: flex; flex-direction: column; align-items: flex-start; }
 .footer-logo {
-  width: 44px; height: 44px;
+  width: 80px; height: 80px;
   object-fit: contain;
   background: var(--white);
-  border-radius: 8px;
-  padding: 5px;
-  flex-shrink: 0;
+  border-radius: 14px;
+  padding: 8px;
+  margin-bottom: 1.1rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,.3);
+  transition: transform .3s ease, box-shadow .3s ease;
+  cursor: default;
 }
-.footer-name  { font-size: .95rem; font-weight: 700; color: var(--white); }
-.footer-sub   { font-size: .78rem; color: rgba(255,255,255,.45); }
-.footer-links {
-  display: flex; align-items: center; gap: .75rem;
-  font-size: .85rem; color: rgba(255,255,255,.5);
+.footer-logo:hover {
+  transform: scale(1.07);
+  box-shadow: 0 8px 36px rgba(184,151,90,.45);
 }
-.footer-links a { color: rgba(255,255,255,.65); transition: color .2s; }
-.footer-links a:hover { color: var(--white); }
+.footer-name  { font-size: 1rem; font-weight: 700; color: var(--white); line-height: 1.2; }
+.footer-legal { font-size: .8rem; color: rgba(255,255,255,.5); margin-top: .15rem; }
+.footer-sub   { font-size: .78rem; color: rgba(255,255,255,.35); margin-top: .25rem; }
+.footer-col-title {
+  font-size: .7rem; text-transform: uppercase;
+  letter-spacing: .14em; font-weight: 700;
+  color: var(--accent); margin-bottom: 1rem;
+}
+.footer-address {
+  font-style: normal;
+  font-size: .88rem; color: rgba(255,255,255,.6);
+  line-height: 1.75;
+}
+.footer-contact-link {
+  display: flex; align-items: center; gap: .55rem;
+  font-size: .88rem; color: rgba(255,255,255,.6);
+  transition: color .2s; padding: .3rem 0;
+  text-decoration: none;
+}
+.footer-contact-link:hover { color: var(--white); }
+.footer-contact-link svg { width: 15px; height: 15px; flex-shrink: 0; color: var(--accent); }
+.footer-contact-col { display: flex; flex-direction: column; }
+.footer-bottom {
+  padding: 1.25rem 0;
+  font-size: .78rem; color: rgba(255,255,255,.3);
+}
+@media (max-width: 900px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .footer-brand-col { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 1.25rem; }
+  .footer-logo { margin-bottom: 0; width: 60px; height: 60px; }
+}
+@media (max-width: 600px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-brand-col { flex-direction: column; align-items: flex-start; }
+  .footer-logo { margin-bottom: .75rem; }
+}
 
 /* ===== RENTABILITÄT ===== */
+.renta-expert-note {
+  display: flex; align-items: flex-start; gap: 1rem;
+  background: var(--white);
+  border: 1.5px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(184,151,90,.12);
+}
+.renta-expert-icon {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(184,151,90,.12);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.renta-expert-icon svg { width: 18px; height: 18px; color: var(--accent); }
+.renta-expert-note strong {
+  display: block; font-size: .88rem; font-weight: 700;
+  color: var(--text); margin-bottom: .35rem;
+}
+.renta-expert-note p {
+  font-size: .85rem; color: var(--text-mid); line-height: 1.6; margin: 0;
+}
+
 .renta-top-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
