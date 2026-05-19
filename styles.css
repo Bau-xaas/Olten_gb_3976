@@ -941,7 +941,7 @@ dd { font-size: .9rem; font-weight: 600; color: var(--text); text-align: right; 
   border-bottom: 1px solid var(--border);
   margin-bottom: 1.5rem;
 }
-.summary-logo { width: 48px; height: auto; }
+.summary-logo { width: 52px; height: 52px; object-fit: contain; }
 .summary-name  { font-size: 1rem; font-weight: 700; color: var(--text); }
 .summary-claim { font-size: .78rem; color: var(--text-mid); }
 .summary-card h3 {
@@ -981,19 +981,16 @@ dd { font-size: .9rem; font-weight: 600; color: var(--text); text-align: right; 
 }
 .footer-brand-col { display: flex; flex-direction: column; align-items: flex-start; }
 .footer-logo {
-  width: 80px; height: 80px;
+  width: 90px; height: 90px;
   object-fit: contain;
-  background: var(--white);
-  border-radius: 14px;
-  padding: 8px;
   margin-bottom: 1.1rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,.3);
-  transition: transform .3s ease, box-shadow .3s ease;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,.35));
+  transition: transform .3s ease, filter .3s ease;
   cursor: default;
 }
 .footer-logo:hover {
   transform: scale(1.07);
-  box-shadow: 0 8px 36px rgba(184,151,90,.45);
+  filter: drop-shadow(0 6px 20px rgba(184,151,90,.55));
 }
 .footer-name  { font-size: 1rem; font-weight: 700; color: var(--white); line-height: 1.2; }
 .footer-legal { font-size: .8rem; color: rgba(255,255,255,.5); margin-top: .15rem; }
