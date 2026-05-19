@@ -159,7 +159,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     const target = document.querySelector(a.getAttribute('href'));
     if (!target) return;
     e.preventDefault();
-    const top = target.getBoundingClientRect().top + window.scrollY - 168;
+    const top = target.getBoundingClientRect().top + window.scrollY - 208;
     window.scrollTo({ top, behavior: 'smooth' });
   });
 });
