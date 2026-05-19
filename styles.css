@@ -973,7 +973,14 @@ dd { font-size: .9rem; font-weight: 600; color: var(--text); text-align: right; 
 .footer-brand {
   display: flex; align-items: center; gap: .85rem;
 }
-.footer-logo { width: 40px; height: auto; filter: brightness(10); opacity: .85; }
+.footer-logo {
+  width: 44px; height: 44px;
+  object-fit: contain;
+  background: var(--white);
+  border-radius: 8px;
+  padding: 5px;
+  flex-shrink: 0;
+}
 .footer-name  { font-size: .95rem; font-weight: 700; color: var(--white); }
 .footer-sub   { font-size: .78rem; color: rgba(255,255,255,.45); }
 .footer-links {
@@ -982,6 +989,135 @@ dd { font-size: .9rem; font-weight: 600; color: var(--text); text-align: right; 
 }
 .footer-links a { color: rgba(255,255,255,.65); transition: color .2s; }
 .footer-links a:hover { color: var(--white); }
+
+/* ===== RENTABILITÄT ===== */
+.renta-top-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.renta-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+.renta-card-title {
+  font-size: 1.05rem; font-weight: 700;
+  color: var(--text); margin-bottom: 0;
+}
+.renta-card-desc {
+  font-size: .82rem; color: var(--text-mid);
+  margin-bottom: 1.25rem; margin-top: .35rem;
+  padding-bottom: .75rem;
+  border-bottom: 1px solid var(--border);
+}
+.renta-table {
+  width: 100%; border-collapse: collapse;
+  font-size: .84rem;
+}
+.renta-table th {
+  text-align: left; font-size: .71rem;
+  text-transform: uppercase; letter-spacing: .08em;
+  color: var(--text-mid); font-weight: 600;
+  padding: .4rem .4rem .6rem;
+  border-bottom: 2px solid var(--border);
+}
+.renta-table td {
+  padding: .45rem .4rem;
+  border-bottom: 1px solid rgba(229,226,220,.5);
+  color: var(--text);
+}
+.renta-table td:not(:first-child) { text-align: right; }
+.renta-total-row td {
+  border-top: 2px solid var(--border);
+  border-bottom: none;
+  padding-top: .65rem;
+  background: rgba(184,151,90,.06);
+  color: var(--accent-dk);
+}
+.renta-szenario-list {
+  display: flex; flex-direction: column; gap: .6rem;
+}
+.renta-szenario {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: .75rem;
+  padding: .85rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg);
+  flex-wrap: wrap;
+}
+.renta-szenario--dim { opacity: .6; }
+.renta-szenario--highlight {
+  border-color: rgba(184,151,90,.4);
+  background: rgba(184,151,90,.06);
+}
+.renta-szenario--top {
+  border-color: var(--accent);
+  background: rgba(184,151,90,.1);
+}
+.renta-sz-label { font-size: .88rem; font-weight: 600; color: var(--text); flex: 1; min-width: 120px; }
+.renta-sz-ansatz { font-size: .78rem; color: var(--text-mid); }
+.renta-sz-val { font-size: .95rem; font-weight: 700; color: var(--text); text-align: right; flex-shrink: 0; }
+.renta-sz-val--accent { color: var(--accent-dk); }
+.renta-invest-wrap {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
+}
+.renta-invest-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+.renta-invest-col { display: flex; flex-direction: column; gap: 0; }
+.renta-invest-label {
+  font-size: .72rem; text-transform: uppercase;
+  letter-spacing: .1em; color: var(--accent);
+  font-weight: 700; margin-bottom: .75rem;
+}
+.renta-invest-group { margin-bottom: .5rem; }
+.renta-invest-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: .5rem 0;
+  border-bottom: 1px solid rgba(229,226,220,.6);
+  font-size: .87rem; gap: 1rem;
+}
+.renta-invest-row span:first-child { color: var(--text-mid); }
+.renta-invest-row span:last-child { font-weight: 600; color: var(--text); flex-shrink: 0; }
+.renta-invest-row--total {
+  padding: .65rem .85rem;
+  background: rgba(28,25,23,.04);
+  border-radius: var(--radius-sm);
+  border-bottom: none;
+}
+.renta-invest-row--neg span:last-child { color: #b91c1c; font-weight: 700; }
+.renta-diff-note {
+  display: flex; align-items: flex-start; gap: .65rem;
+  background: rgba(28,25,23,.03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-size: .82rem; color: var(--text-mid);
+  line-height: 1.55;
+}
+.renta-diff-note svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--text-mid); margin-top: 1px; }
+.renta-disclaimer {
+  font-size: .75rem; color: var(--text-lt);
+  line-height: 1.55; padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+@media (max-width: 900px) {
+  .renta-top-grid  { grid-template-columns: 1fr; }
+  .renta-invest-grid { grid-template-columns: 1fr; }
+}
 
 /* ===== ANIMATIONS (Intersection Observer) ===== */
 .reveal {

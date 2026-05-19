@@ -484,7 +484,7 @@
   <section class="section section--sand" id="ablauf">
     <div class="container">
       <p class="section-label">Projektablauf</p>
-      <h2 class="section-title">So begleiten wir<br/>Ihr Projekt</h2>
+      <h2 class="section-title">So wird das Projekt<br/>begleitet</h2>
 
       <div class="timeline">
         <div class="tl-item">
@@ -516,7 +516,7 @@
           <div class="tl-content">
             <span class="tl-phase">Phase 4</span>
             <h4>Umsetzung & Bauleitung</h4>
-            <p>Bauleitung, Handwerkerkoordination, Qualitätssicherung und IT-Integration bis zur Schlüsselübergabe. Bau-XaaS ist Ihr Single Point of Contact.</p>
+            <p>Die Bauleitung wird durch enge Koordination aller Projektbeteiligten sichergestellt — Handwerker, Fachplaner und Behörden werden durchgehend koordiniert bis zur Schlüsselübergabe.</p>
           </div>
         </div>
       </div>
@@ -528,37 +528,158 @@
     <div class="container">
       <p class="section-label">Rentabilität</p>
       <h2 class="section-title">Rentabilitätsanalyse</h2>
-      <p class="section-desc">Detaillierte Auswertung der wirtschaftlichen Tragbarkeit und Renditeerwartung des Projekts.</p>
+      <p class="section-desc">Bewertete Flächen, Marktszenarien und Investitionsvergleich nach Umbau — auf Basis der groben Plausibilitätsprüfung 2026.</p>
 
-      <div class="pdf-layout">
-        <div class="pdf-viewer">
-          <iframe
-            src="rentabilität.pdf"
-            class="pdf-frame"
-            title="Rentabilitätsanalyse"
-            loading="lazy"
-          ></iframe>
-          <div class="pdf-fallback">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-            <p>PDF kann nicht direkt angezeigt werden.</p>
-            <a href="rentabilität.pdf" target="_blank" class="btn btn-primary">PDF öffnen</a>
+      <div class="renta-top-grid">
+
+        <!-- Flächenberechnung -->
+        <div class="renta-card">
+          <h3 class="renta-card-title">Bewertete Flächen</h3>
+          <p class="renta-card-desc">Nutzflächen nach Gewichtungsfaktor</p>
+          <table class="renta-table">
+            <thead>
+              <tr>
+                <th>Position</th>
+                <th>Brutto</th>
+                <th>Faktor</th>
+                <th>Bewertet</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>EG Hauptfläche</td>
+                <td>83 m²</td>
+                <td>0.85</td>
+                <td>70.55 m²</td>
+              </tr>
+              <tr>
+                <td>OG Hauptfläche</td>
+                <td>63 m²</td>
+                <td>0.85</td>
+                <td>53.55 m²</td>
+              </tr>
+              <tr>
+                <td>Hobbyraum UG</td>
+                <td>16 m²</td>
+                <td>0.50</td>
+                <td>8.00 m²</td>
+              </tr>
+              <tr>
+                <td>Werkstatt UG</td>
+                <td>12 m²</td>
+                <td>0.30</td>
+                <td>3.60 m²</td>
+              </tr>
+              <tr>
+                <td>Waschen / Heizung UG</td>
+                <td>10 m²</td>
+                <td>0.10</td>
+                <td>1.00 m²</td>
+              </tr>
+              <tr>
+                <td>Vorraum UG</td>
+                <td>13 m²</td>
+                <td>0.10</td>
+                <td>1.30 m²</td>
+              </tr>
+              <tr>
+                <td>Schopf UG</td>
+                <td>19 m²</td>
+                <td>0.20</td>
+                <td>3.80 m²</td>
+              </tr>
+              <tr>
+                <td>Abstellraum UG</td>
+                <td>4 m²</td>
+                <td>0.10</td>
+                <td>0.40 m²</td>
+              </tr>
+              <tr class="renta-total-row">
+                <td colspan="3"><strong>Total bewertet</strong></td>
+                <td><strong>142.20 m²</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Marktszenarien -->
+        <div class="renta-card">
+          <h3 class="renta-card-title">Marktszenarien</h3>
+          <p class="renta-card-desc">Objektwert nach Umbau · Basis 142.20 m² bewertet</p>
+          <div class="renta-szenario-list">
+            <div class="renta-szenario renta-szenario--dim">
+              <div class="renta-sz-label">Markt Median</div>
+              <div class="renta-sz-ansatz">ca. CHF 4'900 / m²</div>
+              <div class="renta-sz-val">≈ CHF 697'000</div>
+            </div>
+            <div class="renta-szenario">
+              <div class="renta-sz-label">Saniert konservativ</div>
+              <div class="renta-sz-ansatz">ca. CHF 5'500 / m²</div>
+              <div class="renta-sz-val">≈ CHF 782'000</div>
+            </div>
+            <div class="renta-szenario renta-szenario--highlight">
+              <div class="renta-sz-label">Gut saniert</div>
+              <div class="renta-sz-ansatz">ca. CHF 7'000 / m²</div>
+              <div class="renta-sz-val renta-sz-val--accent">≈ CHF 995'000</div>
+            </div>
+            <div class="renta-szenario renta-szenario--top">
+              <div class="renta-sz-label">Sehr gut saniert</div>
+              <div class="renta-sz-ansatz">ca. CHF 7'500 / m²</div>
+              <div class="renta-sz-val renta-sz-val--accent">≈ CHF 1'067'000</div>
+            </div>
           </div>
         </div>
-        <div class="pdf-info">
-          <h3>Inhalt der Analyse</h3>
-          <ul class="floor-list">
-            <li>Investitionsrechnung & Cashflow</li>
-            <li>Renditeerwartung und Amortisation</li>
-            <li>Finanzierungsstruktur</li>
-            <li>Vergleich Miete vs. Eigentum</li>
-            <li>Wertentwicklung nach Sanierung</li>
-          </ul>
-          <a href="rentabilität.pdf" target="_blank" class="btn btn-primary" style="margin-top:1.5rem">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            PDF herunterladen
-          </a>
+
+      </div>
+
+      <!-- Investitionsvergleich -->
+      <div class="renta-invest-wrap">
+        <h3 class="renta-card-title" style="border-bottom:1px solid var(--border);padding-bottom:.75rem;margin-bottom:1.5rem">Investitionsvergleich</h3>
+        <div class="renta-invest-grid">
+          <div class="renta-invest-col">
+            <div class="renta-invest-label">Kostenübersicht</div>
+            <div class="renta-invest-group">
+              <div class="renta-invest-row">
+                <span>Kaufpreis Liegenschaft</span>
+                <span>ca. CHF 750'000</span>
+              </div>
+              <div class="renta-invest-row">
+                <span>Umbau Variante A (tief)</span>
+                <span>CHF 400'000</span>
+              </div>
+              <div class="renta-invest-row">
+                <span>Umbau Variante A (hoch)</span>
+                <span>CHF 500'000</span>
+              </div>
+            </div>
+            <div class="renta-invest-row renta-invest-row--total">
+              <span>Gesamtinvestition tief</span>
+              <span>CHF 1'150'000</span>
+            </div>
+            <div class="renta-invest-row renta-invest-row--total" style="margin-top:.35rem">
+              <span>Gesamtinvestition hoch</span>
+              <span>CHF 1'250'000</span>
+            </div>
+          </div>
+          <div class="renta-invest-col">
+            <div class="renta-invest-label">Differenz zum Marktwert</div>
+            <div class="renta-diff-note">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <p>Die Gesamtinvestition (Kauf + Umbau) übersteigt in allen Szenarien den errechneten Marktwert nach Sanierung. Dies ist typisch bei selbstgenutztem Wohneigentum: Der Wert entsteht durch Wohnqualität, Eigennutzung und langfristigen Werterhalt.</p>
+            </div>
+            <div class="renta-invest-row renta-invest-row--neg">
+              <span>Differenz (Gesamtinvestition tief)</span>
+              <span>negativ</span>
+            </div>
+            <div class="renta-invest-row renta-invest-row--neg" style="margin-top:.35rem">
+              <span>Differenz (Gesamtinvestition hoch)</span>
+              <span>negativ</span>
+            </div>
+          </div>
         </div>
       </div>
+
+      <p class="renta-disclaimer">* Alle Werte basieren auf der groben Plausibilitätsprüfung 2026. Ansatzpreise sind Schätzwerte auf Basis vergleichbarer Objekte in der Region Olten. Keine Gewähr für Vollständigkeit oder Genauigkeit.</p>
     </div>
   </section>
 
@@ -638,10 +759,6 @@
                 <span>CHF 1.15–1.25 Mio</span>
               </div>
             </div>
-            <button class="btn btn-primary btn-full" id="downloadBtn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              PDF Zusammenfassung laden
-            </button>
           </div>
         </div>
       </div>
@@ -668,7 +785,6 @@
     </div>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha512-O3z2M67Z6g+Uu+egGNO1ZtWxma7WcXHKL0H2mI/tu1+9a6lxn8LxHgUy5kN2WNVX+nN2PsM+RTF0dIifpQx7nw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="script.js"></script>
 </body>
 </html>
